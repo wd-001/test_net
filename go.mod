@@ -161,10 +161,14 @@ require (
 	honnef.co/go/tools v0.0.1-2020.1.3 // indirect
 )
 
-replace github.com/filecoin-project/lotus => ./
-
-replace github.com/golangci/golangci-lint => github.com/golangci/golangci-lint v1.18.0
-
-replace github.com/filecoin-project/filecoin-ffi => ./extern/filecoin-ffi
-
-replace github.com/filecoin-project/test-vectors => ./extern/test-vectors
+replace (
+	github.com/filecoin-project/filecoin-ffi => ./extern/filecoin-ffi
+	github.com/filecoin-project/go-address => github.com/wd-001/go-address v0.0.6-0.20210706073158-ddda3975b445
+	github.com/filecoin-project/lotus => ./
+	github.com/filecoin-project/specs-actors v0.9.13 => github.com/wd-001/specs-actors v0.9.15-0.20210706064625-374d96931f5d
+	github.com/filecoin-project/specs-actors/v2 => github.com/wd-001/specs-actors/v2 v2.3.6-0.20210706070013-768184ecd209
+	github.com/filecoin-project/specs-actors/v3 => github.com/wd-001/specs-actors/v3 v3.1.2-0.20210706070433-723525e963df
+	github.com/filecoin-project/specs-actors/v4 => github.com/wd-001/specs-actors/v4 v4.0.2-0.20210706072607-83a3572f6db0
+	github.com/filecoin-project/test-vectors => ./extern/test-vectors
+	github.com/golangci/golangci-lint => github.com/golangci/golangci-lint v1.18.0
+)
