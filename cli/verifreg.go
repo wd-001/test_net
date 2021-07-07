@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	verifreg4 "github.com/filecoin-project/specs-actors/v4/actors/builtin/verifreg"
+	verifreg5 "github.com/filecoin-project/specs-actors/v5/actors/builtin/verifreg"
 
 	"github.com/filecoin-project/go-state-types/big"
 	"github.com/filecoin-project/lotus/api/v0api"
@@ -93,7 +93,7 @@ var verifRegVerifyClientCmd = &cli.Command{
 		}
 
 		// TODO: This should be abstracted over actor versions
-		params, err := actors.SerializeParams(&verifreg4.AddVerifiedClientParams{Address: target, Allowance: allowance})
+		params, err := actors.SerializeParams(&verifreg5.AddVerifiedClientParams{Address: target, Allowance: allowance})
 		if err != nil {
 			return err
 		}

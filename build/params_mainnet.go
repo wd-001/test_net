@@ -60,6 +60,8 @@ const UpgradeNorwegianHeight = 665280
 // 2021-04-29T06:00:00Z
 const UpgradeActorsV4Height = 712320
 
+const UpgradeActorsV5Height = 99999999
+
 func init() {
 	if os.Getenv("LOTUS_USE_TEST_ADDRESSES") != "1" {
 		SetAddressNetwork(address.Mainnet)

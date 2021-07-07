@@ -18,7 +18,7 @@ import (
 	"github.com/filecoin-project/lotus/chain/vm"
 	"github.com/filecoin-project/lotus/extern/sector-storage/ffiwrapper"
 	"github.com/filecoin-project/lotus/node/repo"
-	builtin4 "github.com/filecoin-project/specs-actors/v4/actors/builtin"
+	builtin5 "github.com/filecoin-project/specs-actors/v5/actors/builtin"
 	"github.com/filecoin-project/specs-actors/v4/actors/util/adt"
 	"github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
@@ -105,7 +105,7 @@ var minerTypesCmd = &cli.Command{
 		}
 
 		err = tree.ForEach(func(addr address.Address, act *types.Actor) error {
-			if act.Code == builtin4.StorageMinerActorCodeID {
+			if act.Code == builtin5.StorageMinerActorCodeID {
 				ms, err := miner.Load(store, act)
 				if err != nil {
 					return err

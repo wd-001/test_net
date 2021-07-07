@@ -6,11 +6,11 @@ import (
 	"fmt"
 	"math/rand"
 
-	power4 "github.com/filecoin-project/specs-actors/v4/actors/builtin/power"
+	power5 "github.com/filecoin-project/specs-actors/v5/actors/builtin/power"
 
-	reward4 "github.com/filecoin-project/specs-actors/v4/actors/builtin/reward"
+	reward5 "github.com/filecoin-project/specs-actors/v5/actors/builtin/reward"
 
-	market4 "github.com/filecoin-project/specs-actors/v4/actors/builtin/market"
+	market5 "github.com/filecoin-project/specs-actors/v5/actors/builtin/market"
 
 	"github.com/filecoin-project/lotus/chain/actors"
 
@@ -403,7 +403,7 @@ func SetupStorageMiners(ctx context.Context, cs *store.ChainStore, sroot cid.Cid
 
 				if av > actors.Version2 {
 					// post v2, we need to explicitly Claim this power since ConfirmSectorProofsValid doesn't do it anymore
-					claimParams := &power4.UpdateClaimedPowerParams{
+					claimParams := &power5.UpdateClaimedPowerParams{
 						RawByteDelta:         types.NewInt(uint64(m.SectorSize)),
 						QualityAdjustedDelta: sectorWeight,
 					}
@@ -539,12 +539,12 @@ func dealWeight(ctx context.Context, vm *vm.VM, maddr address.Address, dealIDs [
 
 		return dealWeights.DealWeight, dealWeights.VerifiedDealWeight, nil
 	}
-	params := &market4.VerifyDealsForActivationParams{Sectors: []market4.SectorDeals{{
+	params := &market5.VerifyDealsForActivationParams{Sectors: []market5.SectorDeals{{
 		SectorExpiry: sectorExpiry,
 		DealIDs:      dealIDs,
 	}}}
 
-	var dealWeights market4.VerifyDealsForActivationReturn
+	var dealWeights market5.VerifyDealsForActivationReturn
 	ret, err := doExecValue(ctx, vm,
 		market.Address,
 		maddr,
@@ -579,7 +579,7 @@ func currentEpochBlockReward(ctx context.Context, vm *vm.VM, maddr address.Addre
 		return epochReward.ThisEpochBaselinePower, *epochReward.ThisEpochRewardSmoothed, nil
 	}
 
-	var epochReward reward4.ThisEpochRewardReturn
+	var epochReward reward5.ThisEpochRewardReturn
 
 	if err := epochReward.UnmarshalCBOR(bytes.NewReader(rwret)); err != nil {
 		return big.Zero(), builtin.FilterEstimate{}, err

@@ -39,6 +39,8 @@ var UpgradeNorwegianHeight = abi.ChainEpoch(-13)
 
 var UpgradeActorsV4Height = abi.ChainEpoch(-14)
 
+var UpgradeActorsV5Height = abi.ChainEpoch(-15)
+
 var DrandSchedule = map[abi.ChainEpoch]DrandEnum{
 	0: DrandMainnet,
 }
@@ -78,6 +80,7 @@ func init() {
 	UpgradeActorsV3Height = getUpgradeHeight("LOTUS_ACTORSV3_HEIGHT", UpgradeActorsV3Height)
 	UpgradeNorwegianHeight = getUpgradeHeight("LOTUS_NORWEGIAN_HEIGHT", UpgradeNorwegianHeight)
 	UpgradeActorsV4Height = getUpgradeHeight("LOTUS_ACTORSV4_HEIGHT", UpgradeActorsV4Height)
+	UpgradeActorsV5Height = getUpgradeHeight("LOTUS_ACTORSV5_HEIGHT", UpgradeActorsV5Height)
 
 	BuildType |= Build2k
 }
