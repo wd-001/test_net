@@ -41,23 +41,7 @@ cd /root
 
 git clone https://github.com/WorldDbs/test_net
 
-git clone https://github.com/WorldDbu1/world_database_change
-
 cd test_net
-
-cd extern 
-
-git clone https://github.com/filecoin-project/filecoin-ffi
-
-git clone https://github.com/filecoin-project/serialization-vectors
-
-git clone https://github.com/filecoin-project/test-vectors
-
-cd ../
-
-go clean -modcache
-
-go mod tidy  
 
 make 2k
 ```
@@ -67,7 +51,7 @@ make 2k
 ```bash
 ./lotus fetch-params 536870912
 
-./lotus-seed pre-seal --sector-size 536870912 --num-sectors 1
+./lotus-seed pre-seal --sector-size 512MiB --num-sectors 1
 
 ./lotus-seed genesis new localnet.json 
 
